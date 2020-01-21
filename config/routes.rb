@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   root to: 'homes#index'
 
+  get '/signup' => 'user#new'
+  post '/users' => 'users#create'
+
+  get '/signin' => 'session#new'
+  post '/signin' => 'session#create'
+  get '/signout' => 'sessions#destroy'
+
   resources :users do
     resources :questions
     resources :answers
