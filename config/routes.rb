@@ -1,20 +1,17 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  root to: 'users#new'
 
-  get '/signup' => 'user#new'
+
+  get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
-  get '/signin' => 'session#new'
-  post '/signin' => 'session#create'
+  get '/signin' => 'sessions#new'
+  post '/signin' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
 
-  # resources :users do
-  #   resources :questions
-  #   resources :answers
-  # end
-  #
-  # resources :questions do
-  #   resources :answers
-  # end
+
+  resources :questions do
+    resources :answers
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

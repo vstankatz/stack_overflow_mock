@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "The Gang Gets a New Member!"
       session[:user_id] = @user.id
-      redirect_to "/"
+      redirect_to "/signin"
     else
       flash[:alert] = "No New Friends"
       redirect_to '/signup'
